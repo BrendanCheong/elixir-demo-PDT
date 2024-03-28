@@ -18,7 +18,7 @@
       Add
     </button>
   </form>
-  <%= for {item, id} <- Enum.with_index(@todo_list) do %>
-    <.todo_items item={item} id={id} />
+  <%= for item <- Enum.with_index(@todo_list) do %>
+    <.todo_items item={item} id={item.id} />
   <% end %>
 </div>
