@@ -1,0 +1,24 @@
+<div class="w-[40%] mx-auto my-8">
+  <h1 class="p-4 my-4 text-3xl font-bold bg-slate-200">Todo List</h1>
+  <form phx-submit="add-todo" class="flex items-center justify-between mb-8 gap-x-3">
+    <input 
+      type="text" 
+      placeholder="New task" 
+      name="task-name" 
+      class="rounded-md py-3 border-2 border-black p-[10px] w-full font-bold 
+        shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] outline-none transition-all focus:translate-x-[3px] focus:translate-y-[3px] focus:shadow-none"
+    />
+    <button 
+      type="submit"
+      role="button"
+      aria-label="Click to submit new task"
+      class="flex cursor-pointer items-center rounded-md border-2 border-black bg-violet-300 px-10 py-3 font-bold 
+        shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-none"
+    >
+      Add
+    </button>
+  </form>
+  <%= for {item, id} <- Enum.with_index(@todo_list) do %>
+    <.todo_items item={item} id={id} />
+  <% end %>
+</div>
