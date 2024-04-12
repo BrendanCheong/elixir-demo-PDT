@@ -38,9 +38,11 @@ defmodule ElixirDemo.Todo do
   end
 
   def delete_todo(id) do
-    Repo.delete!(from t in __MODULE__, where: t.id == ^id)
+    todo = Repo.get!(ElixirDemo.Todo, id)
+    Repo.delete!(todo)
   end
 
+  @spec get_items() :: any()
   def get_items() do
     Repo.all(__MODULE__)
   end
